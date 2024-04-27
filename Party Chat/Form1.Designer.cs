@@ -43,6 +43,7 @@
             Done = new Button();
             CHECK13 = new CheckBox();
             pop_strat = new ComboBox();
+            Clear = new Button();
             SuspendLayout();
             // 
             // label1
@@ -148,6 +149,7 @@
             // 
             // Requirements_Box
             // 
+            Requirements_Box.AccessibleName = "Requirements_Box";
             Requirements_Box.Location = new Point(192, 186);
             Requirements_Box.Multiline = true;
             Requirements_Box.Name = "Requirements_Box";
@@ -165,9 +167,9 @@
             // 
             // Done
             // 
-            Done.Location = new Point(380, 435);
+            Done.Location = new Point(303, 435);
             Done.Name = "Done";
-            Done.Size = new Size(75, 23);
+            Done.Size = new Size(105, 23);
             Done.TabIndex = 12;
             Done.Text = "Create Text";
             Done.UseVisualStyleBackColor = true;
@@ -188,18 +190,29 @@
             // pop_strat
             // 
             pop_strat.FormattingEnabled = true;
-            pop_strat.Items.AddRange(new object[] { "Lucille HC" });
+            pop_strat.Items.AddRange(new object[] { "Lucille HC", "Cyber SPAM", "Unknown SPAM", "Nether SPAM" });
             pop_strat.Location = new Point(667, 8);
             pop_strat.Name = "pop_strat";
             pop_strat.Size = new Size(121, 23);
             pop_strat.TabIndex = 14;
             pop_strat.SelectedIndexChanged += pop_strat_SelectedIndexChanged;
             // 
+            // Clear
+            // 
+            Clear.Location = new Point(414, 435);
+            Clear.Name = "Clear";
+            Clear.Size = new Size(105, 23);
+            Clear.TabIndex = 15;
+            Clear.Text = "Clear";
+            Clear.UseVisualStyleBackColor = true;
+            Clear.Click += Clear_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 532);
+            Controls.Add(Clear);
             Controls.Add(pop_strat);
             Controls.Add(CHECK13);
             Controls.Add(Done);
@@ -238,5 +251,6 @@
         private Button Done;
         private CheckBox CHECK13;
         private ComboBox pop_strat;
+        private Button Clear;
     }
 }

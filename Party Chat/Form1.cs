@@ -31,10 +31,12 @@ namespace Party_Chat
             if (HCMODE.Checked == true)
             {
                 Player4CHECK.Visible = false;
+                Debug.WriteLine("Hardcore mode.");
             }
             if (HCMODE.Checked == false)
             {
                 Player4CHECK.Visible = true;
+                Debug.WriteLine("Normal mode.");
             }
         }
 
@@ -112,22 +114,48 @@ namespace Party_Chat
             }
             //
             //Final Part
+            string Requirements_Text = Requirements_Box.Text;
             if (HCMODE.Checked == true)
             {
-                Final_Box.Text = "Hosting " + StratName
-                    + Environment.NewLine + "Strategy Link : **" + StratLink + "**"
-                    + Environment.NewLine + "Player 1 : " + Player_1
-                    + Environment.NewLine + "Player 2 : " + Player_2
-                    + Environment.NewLine + "Player 3 : " + Player_3;
+                if (Requirements_Text == "")
+                {
+                    Final_Box.Text = "Hosting " + StratName
+                        + Environment.NewLine + "Strategy Link : **" + StratLink + "**"
+                        + Environment.NewLine + "Player 1 : " + Player_1
+                        + Environment.NewLine + "Player 2 : " + Player_2
+                        + Environment.NewLine + "Player 3 : " + Player_3;
+                }
+                else
+                {
+                    Final_Box.Text = "Hosting " + StratName
+                        + Environment.NewLine + "Strategy Link : **" + StratLink + "**"
+                        + Environment.NewLine + "Player 1 : " + Player_1
+                        + Environment.NewLine + "Player 2 : " + Player_2
+                        + Environment.NewLine + "Player 3 : " + Player_3
+                        + Environment.NewLine + "Requirements : " + Requirements_Text;
+                }
             }
-            else if (HCMODE.Checked == false) 
+            else if (HCMODE.Checked == false)
             {
-                Final_Box.Text = "Hosting " + StratName
-                    + Environment.NewLine + "Strategy Link : **" + StratLink + "**"
-                    + Environment.NewLine + "Player 1 : " + Player_1
-                    + Environment.NewLine + "Player 2 : " + Player_2
-                    + Environment.NewLine + "Player 3 : " + Player_3
-                    + Environment.NewLine + "Player 4 : " + Player_4;
+                if (Requirements_Text == "")
+                {
+                    Final_Box.Text = "Hosting " + StratName
+                        + Environment.NewLine + "Strategy Link : **" + StratLink + "**"
+                        + Environment.NewLine + "Player 1 : " + Player_1
+                        + Environment.NewLine + "Player 2 : " + Player_2
+                        + Environment.NewLine + "Player 3 : " + Player_3
+                        + Environment.NewLine + "Player 4 : " + Player_4;
+                }
+                else
+                {
+                    Final_Box.Text = "Hosting " + StratName
+                        + Environment.NewLine + "Strategy Link : **" + StratLink + "**"
+                        + Environment.NewLine + "Player 1 : " + Player_1
+                        + Environment.NewLine + "Player 2 : " + Player_2
+                        + Environment.NewLine + "Player 3 : " + Player_3
+                        + Environment.NewLine + "Player 4 : " + Player_4
+                        + Environment.NewLine + "Requirements : " + Requirements_Text;
+                }
             }
             if (Error == 1)
             {
@@ -151,13 +179,38 @@ namespace Party_Chat
 
         private void pop_strat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (pop_strat.Text == "Lucille HC")
+            string StratName_Data = "Null";
+            string StratLink_Data = "Null";
+            if (pop_strat.SelectedItem == "Lucille HC")
             {
                 HCMODE.Checked = true;
-                StratName_Box.Text = "Lucille Hardcore.";
-                StratLink_Box.Text = "https://docs.google.com/document/d/1NOE7FtL-l8T23LbuK-XHYb3YwFhv_EkL6FnHPrcSih4/edit?usp=sharing";
+                StratName_Data = "Lucille Hardcore.";
+                StratLink_Data = "https://docs.google.com/document/d/1NOE7FtL-l8T23LbuK-XHYb3YwFhv_EkL6FnHPrcSih4/edit?usp=sharing";
                 Debug.WriteLine("Lucille Selected.");
             }
+            else if (pop_strat.SelectedItem == "Cyber SPAM")
+            {
+                HCMODE.Checked = true;
+                StratName_Data = "Cyber SPAM.";
+                StratLink_Data = "https://docs.google.com/document/d/1ox-6_y7HeO03BRjg_FWp2UMb3BHfOGfCrJyaJaWd1eM/edit?usp=sharing";
+                Debug.WriteLine("Cyber SPAM Selected.");
+            }
+            else if (pop_strat.SelectedItem == "Unknown SPAM")
+            {
+                HCMODE.Checked = true;
+                StratName_Data = "Unknown SPAM.";
+                StratLink_Data = "https://docs.google.com/document/d/1Ci9eAHTHygTfqiyzQh0IuGX-hWiceRgV0ju_Svue2uU/edit?usp=sharing";
+                Debug.WriteLine("Unknown SPAM Selected.");
+            }
+            else if (pop_strat.SelectedItem == "Nether SPAM")
+            {
+                HCMODE.Checked = true;
+                StratName_Data = "Nether SPAM.";
+                StratLink_Data = "https://docs.google.com/document/d/1mAt1AsnvRe7CcwVyEcevtWUQNi20OWoocIima5Wx5gU/edit?usp=sharing";
+                Debug.WriteLine("Nether SPAM Selected.");
+            }
+            StratName_Box.Text = StratName_Data;
+            StratLink_Box.Text = StratLink_Data;
         }
 
         private void Player2CHECK_CheckedChanged(object sender, EventArgs e)
@@ -174,7 +227,7 @@ namespace Party_Chat
 
         private void Player3CHECK_CheckedChanged(object sender, EventArgs e)
         {
-            if(Player3CHECK.Checked == true)
+            if (Player3CHECK.Checked == true)
             {
                 Debug.WriteLine("Player_3 Checked.");
             }
@@ -182,6 +235,18 @@ namespace Party_Chat
             {
                 Debug.WriteLine("Player_3 Unchecked.");
             }
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            StratName_Box.Text = "";
+            StratLink_Box.Text = "";
+            Final_Box.Text = "";
+            Player1CHECK.Checked = false;
+            Player2CHECK.Checked = false;
+            Player3CHECK.Checked = false;
+            Player4CHECK.Checked = false;
+            Debug.WriteLine("Cleared all text.");
         }
     }
 }
