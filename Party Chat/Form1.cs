@@ -31,12 +31,12 @@ namespace Party_Chat
             if (HCMODE.Checked == true)
             {
                 Player4CHECK.Visible = false;
-                Debug.WriteLine("Hardcore mode.");
+                Debug.WriteLine("[Debug] Hardcore mode.");
             }
             if (HCMODE.Checked == false)
             {
                 Player4CHECK.Visible = true;
-                Debug.WriteLine("Normal mode.");
+                Debug.WriteLine("[Debug] Normal mode.");
             }
         }
 
@@ -44,11 +44,11 @@ namespace Party_Chat
         {
             if (Player4CHECK.Checked == true)
             {
-                Debug.WriteLine("Player_4 Checked.");
+                Debug.WriteLine("[Debug] Player_4 Checked.");
             }
             else if (Player4CHECK.Checked == false)
             {
-                Debug.WriteLine("Player_4 Unchecked.");
+                Debug.WriteLine("[Debug] Player_4 Unchecked.");
             }
         }
 
@@ -56,11 +56,11 @@ namespace Party_Chat
         {
             if (Player1CHECK.Checked == true)
             {
-                Debug.WriteLine("Player_1 Checked.");
+                Debug.WriteLine("[Debug] Player_1 Checked.");
             }
             else if (Player1CHECK.Checked == false)
             {
-                Debug.WriteLine("Player_1 Unchecked.");
+                Debug.WriteLine("[Debug] Player_1 Unchecked.");
             }
         }
 
@@ -74,7 +74,7 @@ namespace Party_Chat
             {
                 MessageBox.Show("Enter a strategy name.", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Debug.WriteLine("Missing StrategyName");
+                Debug.WriteLine("[Debug] Missing Strategy Name");
                 Error = 1;
             }
             // StratLink Part
@@ -84,7 +84,7 @@ namespace Party_Chat
             {
                 MessageBox.Show("Enter a strategy link.", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Debug.WriteLine("Missing StrategyLink");
+                Debug.WriteLine("[Debug] Missing Strategy Link.");
                 Error = 1;
             }
             // Player Part
@@ -92,25 +92,25 @@ namespace Party_Chat
             if (Player1CHECK.Checked == true)
             {
                 Player_1 = "Close :red_circle:";
-                Debug.WriteLine("Player_1 is checked and ready.");
+                Debug.WriteLine("[Debug] Player_1 is checked and ready.");
             }
             string Player_2 = "Open :green_circle:";
             if (Player2CHECK.Checked == true)
             {
                 Player_2 = "Close :red_circle:";
-                Debug.WriteLine("Player_2 is checked and ready.");
+                Debug.WriteLine("[Debug] Player_2 is checked and ready.");
             }
             string Player_3 = "Open :green_circle:";
             if (Player3CHECK.Checked == true)
             {
                 Player_3 = "Close :red_circle:";
-                Debug.WriteLine("Player_3 is checked and ready.");
+                Debug.WriteLine("[Debug] Player_3 is checked and ready.");
             }
             string Player_4 = "Open :green_circle:";
             if (Player4CHECK.Checked == true)
             {
                 Player_4 = "Close :red_circle:";
-                Debug.WriteLine("Player_4 is checked and ready.");
+                Debug.WriteLine("[Debug] Player_4 is checked and ready.");
             }
             //
             //Final Part
@@ -161,7 +161,7 @@ namespace Party_Chat
             {
                 Final_Box.Text = "Something error.";
             }
-            Debug.WriteLine("Text Created.");
+            Debug.WriteLine("[Debug] Text Created.");
         }
 
         private void CHECK13_CheckedChanged(object sender, EventArgs e)
@@ -186,28 +186,28 @@ namespace Party_Chat
                 HCMODE.Checked = true;
                 StratName_Data = "Lucille Hardcore.";
                 StratLink_Data = "https://docs.google.com/document/d/1NOE7FtL-l8T23LbuK-XHYb3YwFhv_EkL6FnHPrcSih4/edit?usp=sharing";
-                Debug.WriteLine("Lucille Selected.");
+                Debug.WriteLine("[Debug] Lucille Selected.");
             }
             else if (pop_strat.SelectedItem == "Cyber SPAM")
             {
                 HCMODE.Checked = true;
                 StratName_Data = "Cyber SPAM.";
                 StratLink_Data = "https://docs.google.com/document/d/1ox-6_y7HeO03BRjg_FWp2UMb3BHfOGfCrJyaJaWd1eM/edit?usp=sharing";
-                Debug.WriteLine("Cyber SPAM Selected.");
+                Debug.WriteLine("[Debug] Cyber SPAM Selected.");
             }
             else if (pop_strat.SelectedItem == "Unknown SPAM")
             {
                 HCMODE.Checked = true;
                 StratName_Data = "Unknown SPAM.";
                 StratLink_Data = "https://docs.google.com/document/d/1Ci9eAHTHygTfqiyzQh0IuGX-hWiceRgV0ju_Svue2uU/edit?usp=sharing";
-                Debug.WriteLine("Unknown SPAM Selected.");
+                Debug.WriteLine("[Debug] Unknown SPAM Selected.");
             }
             else if (pop_strat.SelectedItem == "Nether SPAM")
             {
                 HCMODE.Checked = true;
                 StratName_Data = "Nether SPAM.";
                 StratLink_Data = "https://docs.google.com/document/d/1mAt1AsnvRe7CcwVyEcevtWUQNi20OWoocIima5Wx5gU/edit?usp=sharing";
-                Debug.WriteLine("Nether SPAM Selected.");
+                Debug.WriteLine("[Debug] Nether SPAM Selected.");
             }
             StratName_Box.Text = StratName_Data;
             StratLink_Box.Text = StratLink_Data;
@@ -217,11 +217,11 @@ namespace Party_Chat
         {
             if (Player2CHECK.Checked == true)
             {
-                Debug.WriteLine("Player_2 Checked.");
+                Debug.WriteLine("[Debug] Player_2 Checked.");
             }
             else if (Player2CHECK.Checked == false)
             {
-                Debug.WriteLine("Player_2 Unchecked.");
+                Debug.WriteLine("[Debug] Player_2 Unchecked.");
             }
         }
 
@@ -229,11 +229,11 @@ namespace Party_Chat
         {
             if (Player3CHECK.Checked == true)
             {
-                Debug.WriteLine("Player_3 Checked.");
+                Debug.WriteLine("[Debug] Player_3 Checked.");
             }
             else if (Player3CHECK.Checked == false)
             {
-                Debug.WriteLine("Player_3 Unchecked.");
+                Debug.WriteLine("[Debug] Player_3 Unchecked.");
             }
         }
 
@@ -242,11 +242,34 @@ namespace Party_Chat
             StratName_Box.Text = "";
             StratLink_Box.Text = "";
             Final_Box.Text = "";
+            pop_strat.Text = "";
+            Requirements_Box.Text = "";
+            CHECK13.Checked = false;
             Player1CHECK.Checked = false;
             Player2CHECK.Checked = false;
             Player3CHECK.Checked = false;
             Player4CHECK.Checked = false;
-            Debug.WriteLine("Cleared all text.");
+            Debug.WriteLine("[Debug] Cleared all text.");
+        }
+
+        private void Final_Box_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (Final_Box.Text == "")
+            {
+                MessageBox.Show("Enter info first before copy.", "Wraning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Debug.WriteLine("[Debug] Copy text fail.");
+            }
+            else
+            {
+                Clipboard.SetText(Final_Box.Text);
+                Debug.WriteLine("[Debug] Text has been copy.");
+            }
         }
     }
 }

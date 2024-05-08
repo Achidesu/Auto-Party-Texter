@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             StratName_Box = new TextBox();
             StratLink_Box = new TextBox();
@@ -44,6 +45,8 @@
             CHECK13 = new CheckBox();
             pop_strat = new ComboBox();
             Clear = new Button();
+            label4 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -162,14 +165,15 @@
             Final_Box.Location = new Point(12, 337);
             Final_Box.Multiline = true;
             Final_Box.Name = "Final_Box";
-            Final_Box.Size = new Size(776, 92);
+            Final_Box.Size = new Size(776, 109);
             Final_Box.TabIndex = 11;
+            Final_Box.TextChanged += Final_Box_TextChanged;
             // 
             // Done
             // 
-            Done.Location = new Point(303, 435);
+            Done.Location = new Point(310, 452);
             Done.Name = "Done";
-            Done.Size = new Size(105, 23);
+            Done.Size = new Size(100, 30);
             Done.TabIndex = 12;
             Done.Text = "Create Text";
             Done.UseVisualStyleBackColor = true;
@@ -195,23 +199,45 @@
             pop_strat.Name = "pop_strat";
             pop_strat.Size = new Size(121, 23);
             pop_strat.TabIndex = 14;
+            pop_strat.Text = "Hot Strategy";
             pop_strat.SelectedIndexChanged += pop_strat_SelectedIndexChanged;
             // 
             // Clear
             // 
-            Clear.Location = new Point(414, 435);
+            Clear.Location = new Point(416, 452);
             Clear.Name = "Clear";
-            Clear.Size = new Size(105, 23);
+            Clear.Size = new Size(100, 30);
             Clear.TabIndex = 15;
             Clear.Text = "Clear";
             Clear.UseVisualStyleBackColor = true;
             Clear.Click += Clear_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(381, 319);
+            label4.Name = "label4";
+            label4.Size = new Size(69, 15);
+            label4.TabIndex = 16;
+            label4.Text = "Output Text";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(363, 488);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 30);
+            button1.TabIndex = 17;
+            button1.Text = "Copy";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 532);
+            Controls.Add(button1);
+            Controls.Add(label4);
             Controls.Add(Clear);
             Controls.Add(pop_strat);
             Controls.Add(CHECK13);
@@ -228,6 +254,8 @@
             Controls.Add(label2);
             Controls.Add(StratName_Box);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Auto Party Texter";
             ResumeLayout(false);
@@ -252,5 +280,7 @@
         private CheckBox CHECK13;
         private ComboBox pop_strat;
         private Button Clear;
+        private Label label4;
+        private Button button1;
     }
 }
