@@ -70,22 +70,24 @@ namespace Party_Chat
             // StratName Part
             string StratName = "NULL";
             StratName = StratName_Box.Text;
-            if (StratName_Box.Text == "")
+            if (StratName_Box.Text == "" && Error == 0)
             {
                 MessageBox.Show("Enter a strategy name.", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Debug.WriteLine("[Debug] Missing Strategy Name");
                 Error = 1;
+                return;
             }
             // StratLink Part
             string StratLink = "NULL";
             StratLink = StratLink_Box.Text;
-            if (StratLink_Box.Text == "")
+            if (StratLink_Box.Text == "" && Error == 0)
             {
                 MessageBox.Show("Enter a strategy link.", "Warning",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Debug.WriteLine("[Debug] Missing Strategy Link.");
                 Error = 1;
+                return;
             }
             // Player Part
             string Player_1 = "Open :green_circle:";
